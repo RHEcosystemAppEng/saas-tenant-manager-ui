@@ -10,6 +10,9 @@ This project contains the basic user interfaces where users can request for an o
 with customizable resource requirements. This project is intend as a reference implementation example for any customer 
 who is willing to provide their software solutions to their customer in a tenant based subscriptions.
 
-### Overview
+### Overview 🛰️
+
+This project only consist the frontend component of this below design. 
+Please refer to [this repository](https://github.com/RHEcosystemAppEng/saas-tenant-manager-backend) for the backend component.
 
 <img style="float: right;" src="./doc/img/overview.png">
