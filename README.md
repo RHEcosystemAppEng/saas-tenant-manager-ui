@@ -16,10 +16,10 @@ Please refer to [this repository](https://github.com/RHEcosystemAppEng/saas-tena
 
 <img style="float: right;" src="./doc/img/overview.png">
 
-### Demo
+### Demo 📺
 <img style="float: right;" src="./doc/img/tenant-manager-ui.gif">
 
-### How to run
+### How to run 🏃
 
 ```shell
 git clone https://github.com/RHEcosystemAppEng/saas-tenant-manager-ui.git
