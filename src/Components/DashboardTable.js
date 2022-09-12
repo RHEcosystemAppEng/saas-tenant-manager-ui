@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Caption, TableComposable, Tbody, Td, Tr} from '@patternfly/react-table';
 import axios from "../axios-middleware";
+import {Link} from "react-router-dom";
 
 
 export const DashboardTable = (props) => {
@@ -47,7 +48,7 @@ export const DashboardTable = (props) => {
                 </Tr>
                 <Tr key="5">
                     <Td>Subscription URL</Td>
-                    <Td>{subscription.url}</Td>
+                    <Td><a target="_blank" href={subscription.url}>{subscription.url}</a></Td>
                 </Tr>
                 <Tr key="6">
                     <Td>Subscription Status</Td>

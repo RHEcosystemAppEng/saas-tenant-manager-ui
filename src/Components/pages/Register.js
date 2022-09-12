@@ -27,18 +27,14 @@ import {clearLocalStorage} from "../../Utils/Helper";
 
 export const Register = (props) => {
     const navigate = useNavigate();
-    // constructor(props) {
-    //     super(props);
-    //     console.log('JUDE ADDED:::' + JSON.stringify(props))
-    //     this.state = {
-    //         inputError: "",
-    //         unexpectedError: false
-    //     };
-    // }
+    const [isPrimaryLoading, setIsPrimaryLoading] = React.useState(false);
+    const [isBtnDisabled, setIsBtnDisabled] = React.useState(false);
 
     const validateAndSubmitData = k => {
         // console.log('JUDE ADDED:::' + JSON.stringify(props))
 
+        setIsBtnDisabled(true)
+        setIsPrimaryLoading(!isPrimaryLoading)
         const formData = {
             "email": localStorage.getItem("email") || "",
             "password": localStorage.getItem("password") || "",
@@ -148,11 +144,26 @@ export const Register = (props) => {
                             </>
                         );
                     }
+
+                    const primaryLoadingProps = {};
+                    primaryLoadingProps.spinnerAriaValueText = "Loading";
+                    primaryLoadingProps.spinnerAriaLabelledBy = "primary-loading-button";
+                    primaryLoadingProps.isLoading = isPrimaryLoading;
                     // Final step buttons
                     return (
                         <>
-                            <Button onClick={() => validateAndSubmitData(onNext)}>Confirm</Button>
-                            <Button variant="link" onClick={() => goToStepByName('Business Information')}>Go to
+                            <Button
+                                variant="primary"
+                                id="primary-loading-button"
+                                onClick={() => validateAndSubmitData(onNext)}
+                                isDisabled={isBtnDisabled}
+                                {...primaryLoadingProps}
+                            >
+                                {isPrimaryLoading ? "Loading..." : "Confirm"}
+                            </Button>
+                            <Button variant="link"
+                                    isDisabled={isBtnDisabled}
+                                    onClick={() => goToStepByName('Business Information')}>Go to
                                 Beginning</Button>
                         </>
                     );
